@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-01T21:53:49.822Z",
+        "reason": "Signal-green status-dot/rail glow is the site's intentional design signature: a CI/CD pipeline status language (online/operational/deployed indicators), matching real monitoring-dashboard convention (Grafana/PagerDuty-style), not decorative AI glow. Reviewed each instance; kept only true status indicators."
+      }
+    ]
+  }
+}
