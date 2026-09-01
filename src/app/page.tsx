@@ -2,6 +2,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { SiteEffects } from "@/components/SiteEffects";
 import { StageNode } from "@/components/StageNode";
 import { RemarksSection } from "@/components/RemarksSection";
+import { MobileNav } from "@/components/MobileNav";
 import {
   ARTICLES,
   JOBS,
@@ -32,13 +33,7 @@ export default function Home() {
             <span className="dot" />
             SONALI&nbsp;JAIN
           </div>
-          <nav className="links">
-            {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
+          <MobileNav links={NAV_LINKS} />
           <div className="status-chip">
             <span className="ring" />
             status: operational
