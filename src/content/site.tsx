@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { href: "#writing", label: "Changelog" },
   { href: "#github", label: "Artifacts" },
   { href: "#contact", label: "Contact" },
+  { href: "#remarks", label: "Reviews" },
 ] as const;
 
 export const SOCIAL_LINKS = [

@@ -30,8 +30,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files — real secrets are never committed; the .example file (no
+# secrets, just documents which vars are needed) is the one exception.
 .env*
+!.env.example
 
 # vercel
 .vercel

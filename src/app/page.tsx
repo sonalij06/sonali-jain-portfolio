@@ -1,6 +1,7 @@
 import { CustomCursor } from "@/components/CustomCursor";
 import { SiteEffects } from "@/components/SiteEffects";
 import { StageNode } from "@/components/StageNode";
+import { RemarksSection } from "@/components/RemarksSection";
 import {
   ARTICLES,
   JOBS,
@@ -329,6 +330,22 @@ export default function Home() {
                 </a>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* REMARKS */}
+        <section className="section stage" id="remarks">
+          <StageNode />
+          <div className="stage-tag">
+            REVIEW <span className="state">· gh pr review --comment</span>
+          </div>
+          <div className="section-head reveal">
+            <div className="eyebrow">Remarks</div>
+            <h2>Leave a review.</h2>
+            <p>Worked together, read something useful, or just want to say hi &mdash; drop a remark below.</p>
+          </div>
+          <div className="reveal">
+            <RemarksSection />
           </div>
         </section>
 
