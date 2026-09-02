@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -24,6 +24,13 @@ export const metadata: Metadata = {
   title: "Sonali Jain",
   description:
     "Cloud & DevOps engineer portfolio — infrastructure automation, CI/CD pipelines, and observability work, styled as a live deployment pipeline.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#06080a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

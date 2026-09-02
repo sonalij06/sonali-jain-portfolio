@@ -1,4 +1,5 @@
 import { CustomCursor } from "@/components/CustomCursor";
+import { MobileQuickActions } from "@/components/MobileQuickActions";
 import { MotionBackground } from "@/components/MotionBackground";
 import { SiteEffects } from "@/components/SiteEffects";
 import { StageNode } from "@/components/StageNode";
@@ -28,6 +29,7 @@ export default function Home() {
 
       <CustomCursor />
       <SiteEffects />
+      <MobileQuickActions />
 
       <header className="nav">
         <div className="nav-inner">
