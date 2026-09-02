@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 type NavLink = { href: string; label: string };
 
 export function MobileNav({ links }: { links: readonly NavLink[] }) {
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   // Close on Escape, and if the viewport grows back past the mobile breakpoint.
   useEffect(() => {
@@ -22,6 +24,39 @@ export function MobileNav({ links }: { links: readonly NavLink[] }) {
       document.removeEventListener("keydown", onKey);
       window.removeEventListener("resize", onResize);
     };
+  }, [open]);
+
+  // Stagger the links in/out instead of an instant display toggle.
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const items = nav.querySelectorAll("a");
+
+    if (!open) {
+      if (nav.style.display === "none" || !nav.classList.contains("is-open")) return;
+      if (reduceMotion) {
+        nav.classList.remove("is-open");
+        return;
+      }
+      gsap.to(items, {
+        opacity: 0,
+        y: -8,
+        duration: 0.16,
+        stagger: 0.02,
+        ease: "power2.in",
+        onComplete: () => nav.classList.remove("is-open"),
+      });
+      return;
+    }
+
+    nav.classList.add("is-open");
+    if (reduceMotion) return;
+    gsap.fromTo(
+      items,
+      { opacity: 0, y: -10 },
+      { opacity: 1, y: 0, duration: 0.32, stagger: 0.045, ease: "power3.out" }
+    );
   }, [open]);
 
   return (
@@ -52,7 +87,9 @@ export function MobileNav({ links }: { links: readonly NavLink[] }) {
         </svg>
       </button>
 
-      <nav className={open ? "links is-open" : "links"}>
+      {open && <div className="nav-scrim" onClick={() => setOpen(false)} aria-hidden="true" />}
+
+      <nav className="links" ref={navRef}>
         {links.map((link) => (
           <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
             {link.label}

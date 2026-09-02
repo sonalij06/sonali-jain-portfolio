@@ -1,4 +1,5 @@
 import { CustomCursor } from "@/components/CustomCursor";
+import { MotionBackground } from "@/components/MotionBackground";
 import { SiteEffects } from "@/components/SiteEffects";
 import { StageNode } from "@/components/StageNode";
 import { RemarksSection } from "@/components/RemarksSection";
@@ -21,6 +22,7 @@ export default function Home() {
         <div className="bg-glow g1" />
         <div className="bg-glow g2" />
         <div className="bg-glow g3" />
+        <MotionBackground />
         <div className="bg-noise" />
       </div>
 
@@ -226,10 +228,17 @@ export default function Home() {
         </section>
 
         <div className="marquee reveal">
-          <div className="marquee-track">
-            {MARQUEE_TOOLS.map((tool) => (
-              <span key={tool}>{tool}</span>
-            ))}
+          <div className="marquee-viewport">
+            <div className="marquee-track">
+              {MARQUEE_TOOLS.map((tool) => (
+                <span key={tool}>{tool}</span>
+              ))}
+            </div>
+            <div className="marquee-track" aria-hidden="true">
+              {MARQUEE_TOOLS.map((tool) => (
+                <span key={tool}>{tool}</span>
+              ))}
+            </div>
           </div>
         </div>
 
