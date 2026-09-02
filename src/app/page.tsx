@@ -2,6 +2,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { MobileQuickActions } from "@/components/MobileQuickActions";
 import { MotionBackground } from "@/components/MotionBackground";
 import { SiteEffects } from "@/components/SiteEffects";
+import { TouchPing } from "@/components/TouchPing";
 import { StageNode } from "@/components/StageNode";
 import { RemarksSection } from "@/components/RemarksSection";
 import { MobileNav } from "@/components/MobileNav";
@@ -28,6 +29,7 @@ export default function Home() {
       </div>
 
       <CustomCursor />
+      <TouchPing />
       <SiteEffects />
       <MobileQuickActions />
 

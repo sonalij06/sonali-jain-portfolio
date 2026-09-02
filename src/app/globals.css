@@ -180,6 +180,22 @@ body.cursor-ready.cursor-active a, body.cursor-ready.cursor-active button{ curso
   .cursor-dot, .cursor-ring{ display:none !important; }
 }
 
+/* ---------- touch ping (mobile cursor-effect analogue) ---------- */
+.touch-ping-host{ position:fixed; inset:0; z-index:9998; pointer-events:none; }
+.touch-ping{
+  position:fixed; left:0; top:0; width:34px; height:34px; margin:-17px 0 0 -17px;
+  border-radius:50%; border:1.5px solid var(--signal); box-shadow:0 0 14px var(--signal-line);
+  pointer-events:none; animation:touch-ping-anim .55s cubic-bezier(.16,1,.3,1) forwards;
+}
+.touch-ping::after{
+  content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:6px; height:6px; border-radius:50%; background:var(--signal); box-shadow:0 0 8px var(--signal);
+}
+@keyframes touch-ping-anim{
+  0%{ transform:scale(.3); opacity:.85; }
+  100%{ transform:scale(1.9); opacity:0; }
+}
+
 /* ---------- pipeline rail ---------- */
 .rail{
   position:absolute; left:-1px; top:0; bottom:0; width:2px;
